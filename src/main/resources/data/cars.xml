@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<cars>
+	<car>
+		<id>001</id>
+		<model>Manta</model>
+		<manufacturer>Opel</manufacturer>
+		<year>1981</year>
+	</car>
+	
+	<car>
+		<id>002</id>
+		<model>Alhambra</model>
+		<manufacturer>Seat</manufacturer>
+		<year>1999</year>
+	</car>
+	<car>
+		<id>003</id>
+		<model>A3</model>
+		<manufacturer>Audi</manufacturer>
+		<year>1996</year>
+	</car>
+	<car>
+		<id>004</id>
+		<model>Camaro</model>
+		<manufacturer>Chevrolet</manufacturer>
+		<year>2013</year>
+	</car>
+</cars>
