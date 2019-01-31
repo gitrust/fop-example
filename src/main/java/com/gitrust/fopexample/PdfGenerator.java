@@ -23,7 +23,8 @@ public class PdfGenerator {
         this.configuration = configuration;
     }
 
-    public void createPdfFile(String xmlDataFile, String templateFile, OutputStream pdfStream) throws IOException, SAXException, TransformerException {
+    public void createPdfFile(String xmlDataFile, String templateFile, OutputStream pdfOutputStream) throws IOException, SAXException, TransformerException {
+        System.out.println("Create pdf file ...");
         File tempFile = File.createTempFile("fop-" + System.currentTimeMillis(), ".pdf");
 
         //  holds references to configuration information and cached data
@@ -33,7 +34,7 @@ public class PdfGenerator {
 
         try {
             // set output format
-            Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, userAgent, pdfStream);
+            Fop fop = fopFactory.newFop(MimeConstants.MIME_PDF, userAgent, pdfOutputStream);
 
             // Load template
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -47,7 +48,7 @@ public class PdfGenerator {
 
             Result result = new SAXResult(fop.getDefaultHandler());
 
-            transformer.transform(new StreamSource(new File(xmlDataFile)), result);
+            transformer.transform(xmlSource, result);
         } finally {
             tempFile.delete();
         }

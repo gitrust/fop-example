@@ -20,7 +20,7 @@ public class App
         CommandLine cmd = parseCli(args);
 
         PdfGenerator pdfGenerator = new PdfGenerator(new HashMap<String, String>());
-        try (FileOutputStream pdfOutput = new FileOutputStream(cmd.getOptionValue("datafile"))) {
+        try (FileOutputStream pdfOutput = new FileOutputStream(cmd.getOptionValue("output"))) {
             pdfGenerator.createPdfFile(cmd.getOptionValue("datafile"),cmd.getOptionValue("stylefile"),pdfOutput);
         } catch (Exception e) {
             e.printStackTrace();
